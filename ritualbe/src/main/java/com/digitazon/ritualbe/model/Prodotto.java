@@ -21,15 +21,26 @@ public class Prodotto {
     private Long id;
 
     @Column
+    private String categoria;
+
+    @Column
     private String nomeProdotto;
 
     @Column
-    private String categoria;
+    private String pathImg;
 
     @Column
     private Double prezzo;
 
-    @Column
-    private String pathImg;
-    
+    public Prodotto(String categoria, String nomeProdotto, String pathImg, Double prezzo) {
+        this.categoria = categoria;
+        this.nomeProdotto = nomeProdotto;
+        this.pathImg = pathImg;
+        this.prezzo = prezzo;
+
+    }
+
+    public Prodotto(String string) {
+    }
+
 }

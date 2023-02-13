@@ -34,5 +34,12 @@ public class Utente {
 
     @OneToMany
     private List<Ordine> ordini;
+
+    public Utente(String nomeUtente, String email) {
+        this.nomeUtente = nomeUtente;
+        this.email = email;
+    }
+
+    
     
 }

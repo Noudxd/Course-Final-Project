@@ -25,8 +25,14 @@ public class Ordine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany
-    private List<Prodotto> prodotti;
+    @Column
+    private LocalDate dataOrdine;
+
+    @Column
+    private int numPersone;
+
+    @Column
+    private int numTavolo;
 
     @Column
     private int quantita;
@@ -34,20 +40,21 @@ public class Ordine {
     @Column
     private double totaleOrdine;
 
-    @Column
-    private LocalDate dataOrdine;
-
-    @Column
-    private int numTavolo;
-
-    @Column
-    private int numPersone;
-
     @ManyToOne
     private Utente utente;
 
-    
-    
+    @ManyToMany
+    private List<Prodotto> prodotti;
 
-    
+    public Ordine(LocalDate dataOrdine, int numPersone, int numTavolo, int quantita, double totaleOrdine, Utente utente,
+            List<Prodotto> prodotti) {
+        this.dataOrdine = dataOrdine;
+        this.numPersone = numPersone;
+        this.numTavolo = numTavolo;
+        this.quantita = quantita;
+        this.totaleOrdine = totaleOrdine;
+        this.utente = utente;
+        this.prodotti = prodotti;
+    }
+
 }
