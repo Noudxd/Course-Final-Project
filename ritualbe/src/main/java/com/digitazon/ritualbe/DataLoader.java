@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 //import com.digitazon.ritualbe.model.Ordine;
-//import com.digitazon.ritualbe.model.Prodotto;
+import com.digitazon.ritualbe.model.Prodotto;
 import com.digitazon.ritualbe.repository.ProdottoRepository;
 import com.digitazon.ritualbe.service.OrdineService;
 import com.digitazon.ritualbe.service.ProdottoService;
@@ -33,11 +33,11 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //Prodotto rituale1 = new Prodotto("rituale", "Rituale Macha", "/src/assets/images.rituale1.png", 7.00);
-        //Prodotto rituale2 = new Prodotto("rituale", "Rituale Kobucha", "/src/assets/images.rituale2.png", 10.00);
+        Prodotto rituale1 = new Prodotto("rituale", "Rituale Macha", "/src/assets/images.rituale1.png", 7.00);
+        Prodotto rituale2 = new Prodotto("rituale", "Rituale Kobucha", "/src/assets/images.rituale2.png", 10.00);
 
-        // prodottoService.createProdotto(rituale1);
-        // prodottoService.createProdotto(rituale2);
+        prodottoService.createProdotto(rituale1);
+        prodottoService.createProdotto(rituale2);
 
         // prodottoService.deleteProdottoById((long) 1);
 
