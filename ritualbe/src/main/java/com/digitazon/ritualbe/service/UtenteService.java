@@ -30,7 +30,7 @@ public class UtenteService {
         return utenteRepository.findAll();
     }
 
-    //impostare metodo se utente già esistente con email
+    
     public Utente creaUtente(Utente utente) {
         return utenteRepository.save(utente);
    
@@ -38,11 +38,7 @@ public class UtenteService {
 
 
     public Utente findUtenteByEmail(String email) {
-        for (Utente u : utenti) {
-            if (u.getEmail().equals(email))
-                return u;
-        }
-        return null;
+        return utenteRepository.findUtenteByEmail(email);
     }
 
     public void deleteUtenteByEmail(String email) {

@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.digitazon.ritualbe.model.Utente;
 import com.digitazon.ritualbe.service.UtenteService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/utente")
 @CrossOrigin
@@ -33,22 +36,28 @@ public class UtenteRestController {
 
     @GetMapping("/find/{email}")
     public ResponseEntity<Utente> getUtenteByEmail(@PathVariable String email) {
- 
-       return new ResponseEntity<Utente>(utenteService.findUtenteByEmail(email), HttpStatus.OK);
- 
+
+        return new ResponseEntity<Utente>(utenteService.findUtenteByEmail(email), HttpStatus.OK);
+
     }
 
     @PostMapping("/create")
     public ResponseEntity<Utente> createUtente(@RequestBody Utente newUtente) {
 
-        return new ResponseEntity<>(utenteService.creaUtente(newUtente), HttpStatus.CREATED);
+        Utente checkEmail = utenteService.findUtenteByEmail(newUtente.getEmail());
+        log.info("CHECK EMAIL" + checkEmail);
+        if (checkEmail == null) {
+            return new ResponseEntity<>(utenteService.creaUtente(newUtente), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @DeleteMapping("/delete/{email}")
     public ResponseEntity<String> deleteUtentebyEmail(@PathVariable String email) {
- 
-       utenteService.deleteUtenteByEmail(email);
-       return new ResponseEntity<>("Utente eliminato", HttpStatus.OK);
+
+        utenteService.deleteUtenteByEmail(email);
+        return new ResponseEntity<>("Utente eliminato", HttpStatus.OK);
     }
 
 }
