@@ -3,6 +3,7 @@ package com.digitazon.ritualbe.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,12 +31,16 @@ public class UtenteService {
         return utenteRepository.findAll();
     }
 
-    
     public Utente creaUtente(Utente utente) {
-        return utenteRepository.save(utente);
-   
-    }
 
+        Utente oldUtente = utenteRepository.findUtenteByEmail(utente.getEmail());
+        if (oldUtente == null) {
+            return utenteRepository.save(utente);
+        }
+
+        return null;
+
+    }
 
     public Utente findUtenteByEmail(String email) {
         return utenteRepository.findUtenteByEmail(email);

@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.digitazon.ritualbe.model.Utente;
 import com.digitazon.ritualbe.service.UtenteService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @RestController
 @RequestMapping("/api/utente")
 @CrossOrigin
@@ -43,14 +40,12 @@ public class UtenteRestController {
 
     @PostMapping("/create")
     public ResponseEntity<Utente> createUtente(@RequestBody Utente newUtente) {
+        if (utenteService.creaUtente(newUtente) == null) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 
-        Utente checkEmail = utenteService.findUtenteByEmail(newUtente.getEmail());
-        log.info("CHECK EMAIL" + checkEmail);
-        if (checkEmail == null) {
-            return new ResponseEntity<>(utenteService.creaUtente(newUtente), HttpStatus.CREATED);
-        } else {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+        return new ResponseEntity<>(utenteService.creaUtente(newUtente), HttpStatus.CREATED);
+
     }
 
     @DeleteMapping("/delete/{email}")
