@@ -1,6 +1,7 @@
 package com.digitazon.ritualbe.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +18,42 @@ public class UtenteService {
     @Autowired
     private UtenteRepository utenteRepository;
 
-    public UtenteService(){
+    public UtenteService() {
         utenti = new ArrayList<>();
 
         utenti.add(new Utente("Nadia", "nadia@email.com"));
-        utenti.add(new Utente("Mara", "mara@email.com"));
+        utenti.add(new Utente("Mara", "mara@gmail.com"));
+
     }
 
-    public List<Utente> getAll(){
+    public List<Utente> getAll() {
         return utenteRepository.findAll();
     }
-    
-    public Utente creaUtente(Utente utente){
+
+    //impostare metodo se utente già esistente con email
+    public Utente creaUtente(Utente utente) {
         return utenteRepository.save(utente);
+   
     }
 
-    public Utente findUtenteByEmail(String email){
-        for (Utente u : utenti){
-            if(u.getEmail().equals(email))
-            return u;
+
+    public Utente findUtenteByEmail(String email) {
+        for (Utente u : utenti) {
+            if (u.getEmail().equals(email))
+                return u;
         }
         return null;
+    }
+
+    public void deleteUtenteByEmail(String email) {
+        Iterator<Utente> utenteIterator = utenti.iterator();
+
+        while (utenteIterator.hasNext()) {
+            Utente utenteTemp = utenteIterator.next();
+
+            if (utenteTemp.getEmail().equals(email))
+                utenteIterator.remove();
+        }
+
     }
 }

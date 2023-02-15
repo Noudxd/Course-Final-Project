@@ -1,15 +1,16 @@
 package com.digitazon.ritualbe;
 
-// import java.time.LocalDate;
-// import java.util.ArrayList;
-// import java.util.List;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-//import com.digitazon.ritualbe.model.Ordine;
+import com.digitazon.ritualbe.model.Ordine;
 import com.digitazon.ritualbe.model.Prodotto;
+import com.digitazon.ritualbe.model.Utente;
 import com.digitazon.ritualbe.repository.ProdottoRepository;
 import com.digitazon.ritualbe.service.OrdineService;
 import com.digitazon.ritualbe.service.ProdottoService;
@@ -44,23 +45,27 @@ public class DataLoader implements CommandLineRunner {
         // l'UPDATE non si testa nel DataLoader ma eventualmente in Postman
         // prodottoService.updateProdotto(rituale2);
 
-        // List<Prodotto> prodotti = new ArrayList<>();
+        List<Prodotto> prodotti = new ArrayList<>();
 
-        // Prodotto p1 = new Prodotto("rituale1");
-        // Prodotto p2 = new Prodotto("rituale 2");
+        Prodotto p1 = new Prodotto("rituale1");
+        Prodotto p2 = new Prodotto("rituale 2");
 
-        // prodotti.add(p1);
-        // prodotti.add(p2);
+        prodotti.add(p1);
+        prodotti.add(p2);
 
-        // prodottoRepository.saveAll(prodotti);
+        prodottoRepository.saveAll(prodotti);
 
-        // Ordine ordine1 = new Ordine(LocalDate.now(), 3, 10, 3, 20.00, null, prodotti);
+        Utente utente1 = new Utente("Nadia", "nadia@email.com");
+        Utente utente2 = new Utente("Mara", "mara@gmail.com");
 
-        // ordineService.createOrdine(ordine1);
+        utenteService.creaUtente(utente1);
+        utenteService.creaUtente(utente2);
 
-
-
-
+        Ordine ordine1 = new Ordine(LocalDate.now(), 2, 5, 2, 15.00, utente2, prodotti);
+        Ordine ordine2 = new Ordine(LocalDate.now(), 3, 3, 2, 20.00, utente1, prodotti);
+        
+        ordineService.createOrdine(ordine1);
+        ordineService.createOrdine(ordine2); 
 
     }
 
