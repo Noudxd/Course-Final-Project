@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet');
+
+
+.bgImg {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.btn {
+    height: 40px;
+    width: 150px;
+    border-color: black;
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    display: inline-block;
+    line-height: 0px;
+    text-align: center;
+}
+
+.title{
+    font-family: 'Arizonia', cursive;
+    font-size: 70px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+}
