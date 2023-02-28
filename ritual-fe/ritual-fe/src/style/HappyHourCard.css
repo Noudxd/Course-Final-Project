@@ -1,0 +1,65 @@
+.card-container {
+    width: 22%;
+    padding: 10px;
+    padding: 20px 40px;
+    cursor: pointer;
+}
+
+
+
+.card-body {
+    background-color: rgb(244, 241, 241);
+    height: 150px;
+
+}
+
+.card-text .card-title {
+    font-family: 'El Messiri', sans-serif;
+    font-weight: bold;
+    color: rgb(74, 72, 72);
+}
+
+.food-container {
+    width: 100%;
+    background-color: rgb(244, 241, 241);
+    opacity: 0.5;
+    margin-top: 10px;
+}
+
+.drink-container {
+    width: 100%;
+    background-color: rgb(244, 241, 241);
+    opacity: 0.5;
+    margin-top: -9px;
+}
+
+.food {
+    font-family: 'El Messiri', sans-serif;
+
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'El Messiri', sans-serif;
+}
+
+.quantity {
+    width: 50px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.buttonAdd {
+    padding-top: 5px;
+    text-align: center;
+    height: 30px;
+    margin-left: 10px;
+    background-color: rgba(198, 192, 192, 0.884);
+    color: rgb(74, 72, 72);
+    font-family: 'El Messiri', sans-serif;
+    border: 1px solid;
+    font-weight: 500;
+    cursor: pointer;
+}

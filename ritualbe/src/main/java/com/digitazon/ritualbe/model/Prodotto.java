@@ -37,10 +37,6 @@ public class Prodotto {
         this.nomeProdotto = nomeProdotto;
         this.pathImg = pathImg;
         this.prezzo = prezzo;
-
-    }
-
-    public Prodotto(String string) {
     }
 
 }

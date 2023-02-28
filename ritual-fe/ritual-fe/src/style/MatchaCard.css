@@ -1,0 +1,25 @@
+.card-body{
+    background-color:  rgb(244, 241, 241);
+}
+
+.card-text .card-title{
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+    color: rgb(74, 72, 72);
+}
+
+.matcha-btn{
+    color: rgb(74, 72, 72);
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: darkgray;
+    border: 1px solid black;
+    border-radius: 3px;
+    line-height: 80%;
+    width: 100px;
+    height: 30px;
+    padding-top: 10px;
+    
+}
+

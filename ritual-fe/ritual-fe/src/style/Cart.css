@@ -1,0 +1,13 @@
+.cart-content{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 600px;
+    background-color: rgb(244, 241, 241);
+    opacity: 0.8;
+    font-family: 'El Messiri', sans-serif;
+    font-size: 20px;
+    flex-wrap: wrap;
+    padding: 30px;
+    overflow: auto;
+}

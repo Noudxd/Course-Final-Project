@@ -1,0 +1,61 @@
+.home-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+}
+
+
+
+.home-box1 {
+    border: 2px black solid;
+    border-radius: 5px;
+    width: 400px;
+    height: 540px;
+    background-image: url('../assets/Images/ritual.jpg');
+    background-size: 100% 100%;
+    opacity: 0.9;
+    margin: 10px 30px;
+
+}
+
+.home-box2 {
+    border: 2px black solid;
+    border-radius: 5px;
+    width: 400px;
+    height: 540px;
+    background-image: url('../assets/Images/happy-hous.jpg');
+    background-size: 100% 100%;
+    opacity: 0.9;
+    margin: 10px 30px;
+}
+
+.btnBox {
+    height: 44px;
+    width: 190px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(28, 17, 17, 0.79);
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'El Messiri', sans-serif;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+    margin-left: 98px;
+    margin-top: 230px;
+    text-decoration: none;
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .col-25,
+    .col-75,
+    input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,12 @@
+.app_navbar-logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Arizonia', cursive;
+    font-size: 45px;
+    color: rgb(74, 72, 72);
+    font-weight: lighter;
+    padding-left: 20px;
+    margin-top: 5px;    
+   
+}
