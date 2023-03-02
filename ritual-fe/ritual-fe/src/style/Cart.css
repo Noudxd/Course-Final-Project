@@ -1,6 +1,6 @@
-.cart-content{
-    display: flex;
-    flex-direction: column;
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
     width: 800px;
     height: 600px;
     background-color: rgb(244, 241, 241);
@@ -10,4 +10,25 @@
     flex-wrap: wrap;
     padding: 30px;
     overflow: auto;
+}
+
+
+.item1{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;    
+}
+
+.item2{
+    grid-column-start: 2;
+    font-size: medium;
+    
+}
+
+.item3{
+    grid-column-end: 3;
+
+}
+.cart_product{
+    font-size: medium;
 }

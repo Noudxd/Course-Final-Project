@@ -1,10 +1,14 @@
 import { useContext } from 'react';
 import '../style/Cart.css';
-import { globale } from '../App';
+import { CartContext, UserContext } from '../App';
+
 
 function Cart() {
-    const { cart } = useContext(globale);
+    
+    const { cart } = useContext(CartContext);
     const [cartItems, setCartItems] = cart;
+    const { user } = useContext(UserContext);
+    const [userData, setUserData] = user;
 
 
 
@@ -14,8 +18,9 @@ function Cart() {
 
     const totalPrice = cartItems.reduce((acc, item) => acc + item.prezzo, 0);
 
+    
     const sendOrder = () => {
-        //let order = //corpo ordine = postman
+        //let order = {numPersone: }
         //sendData(order);
     }
     // async function sendData(order) {
@@ -30,30 +35,39 @@ function Cart() {
     //     ).then(res =>{return res.json()})
 
     return (
-            <div className='cart-content'>
+            <div className='container'>
+                <div className='item1'>
                 <h2>Cart</h2>
+                <h3>{user.nomeUtente}</h3>
+                <h3>{user.email}</h3>
+                <h3>{user.telefono}</h3>
                 <label htmlFor="nGuests">Number of Guests:</label>
-                <input type="text" name='nGuests' />
+                <input style={{width: "15%"}} type="text" name='nGuests' />
                 <br />
                 <label htmlFor="nTable">Table number:</label>
-                <input type="text" name='nTable' />
+                <input style={{width: "15%"}} type="text" name='nTable' />
                 <br />
                 <br />
+                </div>
                 {cartItems.length === 0 && <p>Your cart is empty.</p>}
                 {cartItems.map(item => (
-                    <div key={item.id}>
-                        <h3>{item.nomeProdotto}</h3>
+                    <div key={item.id} className='item2'>
+                        <h3 className='cart_product'>{item.nomeProdotto}</h3>
                         <p>Price: €{item.prezzo.toFixed(2)}</p>
                         <button onClick={() => removeFromCart(item)}>Remove</button>
                     </div>
                 ))}
+                <div className='item3'>
                 {cartItems.length > 0 && (
                     <div>
-                        <h3>Total Price: €{totalPrice.toFixed(2)}</h3>
+                        <h3 className='cart_total'>Total Price: €{totalPrice.toFixed(2)}</h3>
                     </div>
 
                 )}
+                <div className='cart_send'>
                 <button onClick={() => sendOrder()}>SEND ORDER</button>
+                </div>
+                </div>
             </div>
         );
 

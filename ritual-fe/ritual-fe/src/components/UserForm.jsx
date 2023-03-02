@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext  } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
+
+
 
 
 
 function UserForm() {
+
+  const {user} = useContext(UserContext);
+    const [userData, setUserData] = user;
+  
 
   const navigate = useNavigate();
 
@@ -32,6 +39,7 @@ function UserForm() {
     })
 
       .then(data => {
+        setUserData(inputs)
         navigate('/home');
         console.log(data);
       })

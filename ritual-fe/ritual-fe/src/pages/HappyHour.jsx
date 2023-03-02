@@ -1,18 +1,18 @@
 import '../style/HappyHourCard.css';
 import { useState, useEffect } from 'react';
 import { useContext } from 'react';
-import { globale } from '../App';
+import { CartContext} from '../App';
 
 
 function HappyHour() {
-    const {cart} = useContext(globale);
+    const {cart} = useContext(CartContext);
     const [cartItems, setCartItems] = cart;
 
     const [foodItems, setFoodItems] =  useState([]);
 
     const [drinkItems, setDrinkItems] =  useState([]);
 
-    const [allItems, setAllItems] =  useState([]);
+    
 
 
 
@@ -23,11 +23,10 @@ function HappyHour() {
     useEffect(() => {
         (async() => {
             const items = await fetch('http://localhost:8080/api/prodotto/all');
-            setAllItems(await items.json());
-            const foodArr = allItems.filter(food => food.categoria === 'food')
+            const itemsData = await items.json();
+            const foodArr = itemsData.filter(food => food.categoria === 'food')
             setFoodItems(foodArr)
-            console.log(foodArr);
-            const drinkArr = allItems.filter(drink => drink.categoria === 'drink')
+            const drinkArr = itemsData.filter(drink => drink.categoria === 'drink')
             setDrinkItems(drinkArr);
         }) () //con questa lanci la funzione async
         
@@ -42,7 +41,7 @@ function HappyHour() {
                 <h1 className="food">Food</h1>
             </div>
             <div className="wrapper d-flex align-items-center flex-row flex-wrap justify-content-center">
-                {allItems.map(product => (
+                {foodItems.map(product => (
                     <div className='' key={product.id}>
                         <div className="card mx-3 my-5" style={{ width: "18rem", textAlign: "center" }} >
                             <img src={product.pathImg} className="card-img-top" alt="..." height="200" />

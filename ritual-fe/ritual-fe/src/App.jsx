@@ -11,14 +11,17 @@ import Cart from './components/Cart';
 import React from 'react';
 import { useState } from 'react';
 
-export const globale = React.createContext(); //per passarsi info di qualsiasi tipo in tutta l'applicazione
+export const CartContext = React.createContext(); //per passarsi info di qualsiasi tipo in tutta l'applicazione
+export const UserContext = React.createContext();
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [userData, setUserData] = useState({});
   return (
     <>
-    {/* racchiude tutte le pagine e gli si passa lo stato del carrello */}
-      <globale.Provider value={{cart:[cartItems, setCartItems]}}>
+    {/* racchiude tutte le pagine e gli si passa lo stato di carrello e user */}
+      <UserContext.Provider value={{user:[userData, setUserData]}}>
+      <CartContext.Provider value={{cart:[cartItems, setCartItems]}}>
 
 
         <BrowserRouter>
@@ -34,7 +37,8 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
-      </globale.Provider>
+      </CartContext.Provider>
+      </UserContext.Provider>
     </>
   );
 }
