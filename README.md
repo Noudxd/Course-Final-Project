@@ -21,7 +21,7 @@ Full Stack application for a restaurant order-taking app (need to be completed a
 * To scaffhold the project, I run the command `npm create vite@latest`, I selected **React** as a framework, <br />
 **Javascript** as a variant and I followed the prompts
 to reach the command `npm run dev` <br />
-and opened the local host to view the project in the browser in the development mode.
+to open the local host and view the project in the browser in development mode.
 ---
 ### Back-end side
 * I still used **Visual Studio Code** as a IDE;<br />
